@@ -1,135 +1,84 @@
-# Four-In-A-Row-Game
+# Four-In-A-Row
 
-Welcome to the **Four-In-A-Row-Game** game! This is a terminal-based implementation of the classic **Connect Four** game, where two players take turns dropping colored pieces into a grid. The goal is to be the first to connect four of your pieces in a row (horizontally, vertically, or diagonally). The game features colorful visuals, save/load functionality, and an interactive menu.
+A two-player Connect Four game for the Windows terminal, written in C. It has colored pieces, and it saves each game to a binary file so you can replay it and keep playing later.
 
----
-
-## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [How to Run](#how-to-run)
-- [Gameplay](#gameplay)
-- [Code Structure](#code-structure)
-- [Dependencies](#dependencies)
-
----
-
-## Introduction
-
-The **Four-In-A-Row-Game** game is a two-player strategy game where players take turns dropping their pieces into a 7x6 grid. The first player to connect four of their pieces in a row wins the game. If the grid is filled without a winner, the game ends in a draw.
-
-This project is implemented in **C** and uses the terminal for input and output. It features:
-- **Colorful visuals** using ANSI escape codes.
-- **Save and load functionality** to continue games later.
-- **Interactive menu** for easy navigation.
-
----
+![Main menu](./photo/p3.jpg)
 
 ## Features
 
-- **Two-Player Mode**: Play against a friend on the same device.
-- **Colorful Visuals**: Uses ANSI escape codes to display colored pieces in the terminal.
-- **Save and Load**: Save your game progress and load it later to continue playing.
-- **Interactive Menu**: Easy-to-navigate menu for starting new games, loading saves, and accessing help.
-- **Winning Logic**: Automatically checks for a winner or a draw.
-- **Cross-Platform**: Works on any system with a C compiler and terminal support.
+- **Two players on one keyboard** on an **8 x 8** board (columns `0` to `7`).
+- **Pick your color:** each player chooses Red, Yellow, Green or Blue. Both players can't pick the same color.
+- **Win detection:** four pieces in a row horizontally, vertically or diagonally wins. If all 64 cells fill up with no winner, the game is a draw.
+- **Colored display** using ANSI escape codes.
+- **Save and resume:**
+  - Each move is written to `save.bin` as it is played.
+  - When you quit with `-1`, or when the game ends, the moves and a move counter are written to `save2.bin`.
+  - The **(S)ave** menu option replays the saved game one move at a time, then lets you keep playing from that position.
+- **Save-file viewer:** the **(F)ile** option prints the save file as raw bits. Each line is a move: 3 bits for the player, 3 for the column and 3 for the color. The first line is a 7-bit move counter.
+- **Built-in help screen.**
 
----
+## Screenshots
 
-## How to Run
+| Game board | Game board |
+| --- | --- |
+| ![Game board](./photo/p1.jpg) | ![Game board](./photo/p2.jpg) |
 
-### Prerequisites
-- **C Compiler**: Ensure you have a C compiler installed (e.g., `gcc`).
-- **Terminal**: The game runs in the terminal.
+## Requirements
 
-### Steps to Run
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/Four-In-A-Row-Game.git
-   ```
+- **Windows.** The game uses `conio.h` (`getch`) and `system("cls")`.
+- A C compiler for Windows, such as GCC from MinGW-w64.
+- A terminal that supports ANSI colors, such as Windows Terminal.
 
-2. **Compile the Code**:
-   Compile the C code using `gcc`:
-   ```bash
-   gcc main.c -o Four-In-A-Row-Game
-   ```
+## Build and Run
 
-3. **Run the Game**:
-   Run the compiled executable:
-   ```bash
-   ./Four-In-A-Row-Game
-   ```
-
-4. **Follow the Instructions**:
-   - Use the menu to start a new game, load a saved game, or access help.
-   - Follow the on-screen instructions to play the game.
-
----
-
-## Gameplay
-
-### Objective
-- Be the first player to connect four of your pieces in a row (horizontally, vertically, or diagonally).
-
-### Controls
-- **Player 1** and **Player 2** take turns entering a column number (0-7) to drop their piece.
-- Use the `-1` command to exit the game and save your progress.
-
-### Game Modes
-1. **New Game**: Start a fresh game.
-2. **Load Game**: Continue from a previously saved game.
-3. **Help**: Access game instructions and rules.
-
-### Saving and Loading
-- The game automatically saves your progress when you exit.
-- Use the **Load Game** option to continue from where you left off.
-
----
-
-## Code Structure
-
-The project is organized into the following functions:
-
-- **`menu()`**: Displays the main menu and handles user input.
-- **`Start()`**: Initializes a new game.
-- **`ChoiseColumn()`**: Handles player input for selecting a column.
-- **`PrintBoard()`**: Displays the current state of the game board.
-- **`check_board()`**: Checks for a winning condition or a draw.
-- **`FWrite()`**: Saves the game state to a file.
-- **`FRead()`**: Loads the game state from a file.
-- **`Help()`**: Displays game instructions and rules.
-
----
-
-## Dependencies
-
-- **C Standard Library**: The project uses the standard C library for input/output, file handling, and memory management.
-- **ANSI Escape Codes**: Used for adding colored output to the terminal.
-
----
-
-### Main Menu
-
-
-![Example results](./photo/p3.jpg)  
-
-
-### Game Board
-
-![Example results](./photo/p1.jpg)  
-![Example results](./photo/p2.jpg)  
-
-
-
-
-### Winning Message
-```
-WIN USER '1'
+```bash
+git clone https://github.com/sedwna/Four-In-A-Row-Game.git
+cd Four-In-A-Row-Game
+gcc src/Four-In-A-Row-Game.c -o four-in-a-row.exe
+./four-in-a-row.exe
 ```
 
----
+The save files (`save.bin` and `save2.bin`) are created in the folder you run the game from.
 
-Enjoy playing **Four-In-A-Row-Game**! If you have any questions or feedback, feel free to open an issue or contribute to the project.
+## How to Play
 
----
+In the main menu, type a letter and press Enter:
 
+| Key | Action |
+| --- | --- |
+| `H` | Help |
+| `P` | Start a new game |
+| `S` | Replay and continue the last saved game |
+| `F` | Print the save file as `0`/`1` bits |
+| `E` | Exit |
+
+During a game:
+
+1. Each player picks a color.
+2. Players take turns typing a column number from `0` to `7`. The piece drops to the lowest empty cell in that column. You can't choose a full column.
+3. Type `-1` instead of a column number to save and quit. Typing `-1` at the color prompt quits without saving.
+4. When someone connects four, the game prints `WIN USER '1'` or `WIN USER '2'`.
+
+## Project Structure
+
+```
+Four-In-A-Row-Game/
+├── src/
+│   └── Four-In-A-Row-Game.c   # The whole game: menu, board, win checks, save/load
+├── photo/                     # Screenshots
+│   ├── p1.jpg
+│   ├── p2.jpg
+│   └── p3.jpg
+└── README.md
+```
+
+## Tech Stack
+
+- C (standard library, `conio.h`)
+- ANSI escape codes for colors
+- Binary file I/O for saving and replaying games
+
+## Authors
+
+- Sajad Dehqan
+- MuhammadSaleh Qarehdaqi
