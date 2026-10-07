@@ -1,3 +1,45 @@
+<!-- visual-showroom:start -->
+<p align="center">
+  <img src="docs/showroom/readme-banner.svg" alt="Four In A Row — repository cover" width="100%">
+</p>
+
+<p align="center">
+  <strong>Four In A Row</strong><br>
+  SMALL GAMES / REAL PLAY
+</p>
+
+<p align="center">
+  <a href="https://sajjad-dehghan-personal-site.prisoner-sedwna.workers.dev/projects/four-in-a-row"><strong>Explore the showroom ↗</strong></a> ·
+  <a href="https://sajjad-dehghan-personal-site.prisoner-sedwna.workers.dev/play/four-in-a-row/"><strong>Try the browser edition ↗</strong></a> ·
+  <a href="#implementation--original-documentation">Setup &amp; implementation ↓</a>
+</p>
+
+Two-player Connect Four in the terminal, written in C, with colored pieces and saved games you can replay move by move.
+
+## Visual tour
+
+[![Actual new browser edition · original C game's 8×8 rules](docs/showroom/readme-view-1.jpg)](https://sajjad-dehghan-personal-site.prisoner-sedwna.workers.dev/projects/four-in-a-row)
+
+<p align="center">
+  <a href="https://sajjad-dehghan-personal-site.prisoner-sedwna.workers.dev/projects/four-in-a-row"><img src="docs/showroom/readme-view-2.jpg" alt="Original terminal menu" width="48%"></a>
+  <a href="https://sajjad-dehghan-personal-site.prisoner-sedwna.workers.dev/projects/four-in-a-row"><img src="docs/showroom/readme-view-3.jpg" alt="Original terminal gameplay" width="48%"></a>
+  <a href="https://sajjad-dehghan-personal-site.prisoner-sedwna.workers.dev/projects/four-in-a-row"><img src="docs/showroom/readme-view-4.jpg" alt="Another original terminal view" width="48%"></a>
+</p>
+
+1. Actual new browser edition · original C game's 8×8 rules
+2. Original terminal menu
+3. Original terminal gameplay
+4. Another original terminal view
+
+Real captures or owner-supplied images, not generated product mockups. Demo/local data and edition boundaries are documented below.
+
+## Implementation & original documentation
+
+The existing run instructions, architecture, limitations and credits are preserved below.
+
+---
+<!-- visual-showroom:end -->
+
 # Four-In-A-Row
 
 ## Browser replay gallery
