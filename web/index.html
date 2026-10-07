@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#111c1d"><meta name="description" content="Four In A Row: play the original 8 by 8 rules with a friend, save locally and replay every move."><title>Four In A Row — One more move.</title><link rel="stylesheet" href="./style.css"><script type="module" src="./app.mjs"></script></head>
+<body class="four">
+  <header class="shell header"><a class="brand" href="https://sajjad-dehghan-personal-site.prisoner-sedwna.workers.dev/fa#all-projects">sajjad<span> / play</span></a><a class="source" href="https://github.com/sajjad-dehghan/Four-In-A-Row-Game" target="_blank" rel="noreferrer">View source ↗</a></header>
+  <main class="shell layout">
+    <section class="intro"><p class="eyebrow"><span class="tiny-mark">✳</span> TWO PLAYERS. ONE GOOD RIVALRY.</p><h1>Four<br>in a <em>row.</em></h1><p class="description">Drop a piece. Find your line.<br>Sometimes the simplest games stay with you.</p><div class="colors"><label>Player 1 <select id="color1"><option value="red">Coral</option><option value="yellow">Gold</option><option value="green">Sage</option><option value="blue">Sky</option></select></label><label>Player 2 <select id="color2"><option value="green">Sage</option><option value="yellow">Gold</option><option value="red">Coral</option><option value="blue">Sky</option></select></label></div><div class="tags"><span>02 / CONNECT FOUR</span><span>C → BROWSER</span></div></section>
+    <section class="arena" aria-label="Four In A Row game">
+      <div class="arena-top"><span class="label">YOUR NEXT MOVE</span><span class="board-size">8 × 8 / ORIGINAL RULES</span></div>
+      <div class="players"><div id="player1" class="player active"><span class="disc">1</span><div><strong>Player one</strong><small id="count1">0 PIECES</small></div><span class="turn-dot"></span></div><div id="player2" class="player"><span class="disc">2</span><div><strong>Player two</strong><small id="count2">0 PIECES</small></div><span class="turn-dot"></span></div></div>
+      <div class="board-wrap"><div id="columns" class="column-controls" role="group" aria-label="Drop a piece into a column"></div><div id="board" class="four-board" role="img" aria-label="Empty 8 by 8 game board"></div></div>
+      <div class="status-row"><p id="status" role="status" aria-live="polite">Player one, pick a column.</p><button id="restart" class="reset">↻ <span>New game</span></button></div>
+      <div class="replay"><p id="replay-label" class="replay-label">THE STORY SO FAR / 0 MOVES</p><button id="back" aria-label="Previous move">←</button><input id="timeline" type="range" min="0" max="0" value="0" aria-label="Replay move"><button id="continue">Live game ↗</button></div>
+      <p id="storage" class="storage-note">Saved automatically on this browser. Come back anytime.</p>
+    </section>
+  </main>
+  <footer class="shell footer"><span>SAJJAD DEHGHAN × MUHAMMADSALEH QAREHDAQI</span><span>Connect four. Keep the moment.</span><a href="https://sajjad-dehghan-personal-site.prisoner-sedwna.workers.dev/play/tic-tac-py/">Next game: Tic-Tac-Py ↗</a></footer>
+</body></html>

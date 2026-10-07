@@ -1,8 +1,30 @@
 # Four-In-A-Row
 
+## Browser replay gallery
+
+![Move-by-move replay of an actual saved game](docs/showroom/four-replay.jpg)
+
+Actual JavaScript browser edition, replaying the saved position without changing the live game. The original C terminal edition and binary saves are separate. [Showroom](https://sajjad-dehghan-personal-site.prisoner-sedwna.workers.dev/projects/four-in-a-row).
+
 A two-player Connect Four game for the Windows terminal, written in C. It has colored pieces, and it saves each game to a binary file so you can replay it and keep playing later.
 
 ![Main menu](./photo/p3.jpg)
+
+## New browser edition
+
+A minimal browser frontend is included in `web/`. It keeps the C game's original **8 × 8 board**, two players, four selectable colors, gravity and four-in-a-row wins. The new browser edition automatically saves to localStorage and supports a move-by-move replay timeline with return to the live game. Saves are versioned JSON in this browser, not compatible with the terminal program's binary files. The original C source is unchanged; the browser logic is implemented separately in JavaScript.
+
+[Play the browser edition](https://sajjad-dehghan-personal-site.prisoner-sedwna.workers.dev/play/four-in-a-row/)
+
+![Actual browser gameplay captured on October 7, 2026](docs/showroom/browser-gameplay.jpg)
+
+To run the frontend locally, install Python 3 if needed, then:
+
+```bash
+python -m http.server 8080 --directory web
+```
+
+Open `http://localhost:8080/`. Column buttons work with Tab and Enter/Space; use arrow keys on the replay slider. Original terminal screenshots and instructions remain below.
 
 ## Features
 
